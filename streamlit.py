@@ -25,22 +25,22 @@ st.sidebar.header("Specify input parameters")
 
 @st.cache
 def user_input_features():
-  GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
-  PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
-  OSMO = st.sidebar.slider('OSMO', float(X.osmo.min()), float(X.osmo.max()), float(X.osmo.mean()))
-  COND = st.sidebar.slider('COND', float(X.cond.min()), float(X.cond.max()), float(X.cond.mean()))
-  UREA = st.sidebar.slider('UREA', float(X.urea.min()), float(X.urea.max()), float(X.urea.mean()))
-  CALC = st.sidebar.slider('CALC', float(X.calc.min()), float(X.calc.max()), float(X.calc.mean()))
+        GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
+        PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
+        OSMO = st.sidebar.slider('OSMO', float(X.osmo.min()), float(X.osmo.max()), float(X.osmo.mean()))
+        COND = st.sidebar.slider('COND', float(X.cond.min()), float(X.cond.max()), float(X.cond.mean()))
+        UREA = st.sidebar.slider('UREA', float(X.urea.min()), float(X.urea.max()), float(X.urea.mean()))
+        CALC = st.sidebar.slider('CALC', float(X.calc.min()), float(X.calc.max()), float(X.calc.mean()))
 
-  data = {'gravity': GRAVITY,
-          'ph': PH,
-          'osmo': OSMO,
-          'cond': COND, 
-          'urea': UREA,
-          'calc': CALC}
+        data = {'gravity': GRAVITY,
+                'ph': PH,
+                'osmo': OSMO,
+                'cond': COND, 
+                'urea': UREA,
+                'calc': CALC}
 
-  features = pd.DataFrame(data, index=[0])
-  return features
+        features = pd.DataFrame(data, index=[0])
+        return features
 
 df = user_input_features()
 
