@@ -23,7 +23,7 @@ st.markdown("The data for this application is obtained from 'Physical Characteri
 
 st.sidebar.header("Specify input parameters")
 
-GRAVITY = st.sidebar.slider('GRAVITY', 1.005, 1.040, 1.017)
+GRAVITY = st.sidebar.slider('GRAVITY', 1005, 1040, 1017)
 PH = st.sidebar.slider('PH', 4.76, 7.94, 5.96)
 OSMO = st.sidebar.slider('OSMO', 187, 1236, 645)
 COND = st.sidebar.slider('COND', 5.1, 38.0, 21.34)
