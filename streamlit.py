@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 st.title('# Kidney Stone Prediction based on Urine Analysis')
 
-st.image('kidney.jpeg')
+st.image('Kidney.jpeg')
 
 st.markdown("""
       The six physical characteristics of the urine are: (1) specific gravity, the density of the urine relative to water; (2) pH, the negative logarithm of the hydrogen ion; (3) osmolarity (mOsm), a unit used in biology and medicine but not in
