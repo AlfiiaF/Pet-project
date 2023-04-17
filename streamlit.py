@@ -21,7 +21,7 @@ st.markdown("""
 
 st.sidebar.header("Specify input parameters")
 
-uploaded_file = st.file_uploader("train.csv")
+X = st.file_uploader("train.csv")
 
 GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
 PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
