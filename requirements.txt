@@ -1,5 +1,3 @@
-PIL
-urllib.request
 shap
 joblib
 numpy
