@@ -7,11 +7,10 @@ from PIL import Image
 from urllib.request import urlopen
 import shap
 
-image = Image.open(urlopen('https://f.stolichki.ru/s/media/articles/131b46e7ed0d3f49207a796922803e59.jpg'))
 
 st.title('# Kidney Stone Prediction based on Urine Analysis')
 
-st.image(image, use_column_width=True)
+st.image('kidney.jpeg')
 
 st.markdown("""
       The six physical characteristics of the urine are: (1) specific gravity, the density of the urine relative to water; (2) pH, the negative logarithm of the hydrogen ion; (3) osmolarity (mOsm), a unit used in biology and medicine but not in
