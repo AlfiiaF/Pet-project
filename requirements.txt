@@ -1,5 +1,4 @@
 shap
 joblib
-numpy
 scikit-learn
 matplotlib
