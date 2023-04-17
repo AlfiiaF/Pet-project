@@ -47,4 +47,14 @@ st.write('---')
 model = joblib.load("model.pkl")
 prediction = model.predict(features)
 
+st.header('Prediction of Kidney Stone')
+st.write(prediction)
+if prediction == 0:
+  st.write("You don't have kidney stones")
+else:
+  st.write("You have kidney stones. See a doctor")
+
+st.write('---')
+
+
 
