@@ -1,7 +1,7 @@
 import joblib
 import pandas as pd
-from urllib.request import urlopen
 import shap
+import matplotlib.pyplot as plt
 
 
 st.title('# Kidney Stone Prediction based on Urine Analysis')
