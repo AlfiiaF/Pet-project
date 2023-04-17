@@ -59,9 +59,4 @@ st.write('---')
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X)
 
-st.header('Feature Importance')
-plt.title('Feature importance based on SHAP values')
-shap.summary_plot(shap_values, X)
-st.pyplot(bbox_inches='tight')
-st.write('---')
 
