@@ -23,7 +23,6 @@ st.sidebar.header("Specify input parameters")
 
 uploaded_file = st.file_uploader('train.csv')
 X = pd.read_csv(uploaded_file)
-st.write(X)
 
 GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
 PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
@@ -31,4 +30,17 @@ OSMO = st.sidebar.slider('OSMO', float(X.osmo.min()), float(X.osmo.max()), float
 COND = st.sidebar.slider('COND', float(X.cond.min()), float(X.cond.max()), float(X.cond.mean()))
 UREA = st.sidebar.slider('UREA', float(X.urea.min()), float(X.urea.max()), float(X.urea.mean()))
 CALC = st.sidebar.slider('CALC', float(X.calc.min()), float(X.calc.max()), float(X.calc.mean()))
+
+data = {'gravity': GRAVITY,
+      'ph': PH,
+      'osmo': OSMO,
+      'cond': COND, 
+      'urea': UREA,
+      'calc': CALC}
+
+features = pd.DataFrame(data, index=[0])
+
+st.header('Specified input parameters')
+st.write(features)
+st.write('---')
 
