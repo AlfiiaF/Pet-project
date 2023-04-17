@@ -44,3 +44,27 @@ st.header('Specified input parameters')
 st.write(features)
 st.write('---')
 
+model = joblib.load("model.pkl")
+
+prediction = model.predict(df)
+
+
+st.header('Prediction of Kidney Stone')
+st.write(prediction)
+if prediction == 0:
+  st.write("You don't have kidney stones")
+else:
+  st.write("You have kidney stones. See a doctor")
+
+st.write('---')
+
+
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X)
+
+st.header('Feature Importance')
+plt.title('Feature importance based on SHAP values')
+shap.summary_plot(shap_values, X)
+st.pyplot(bbox_inches='tight')
+st.write('---')
+
