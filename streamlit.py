@@ -51,7 +51,7 @@ st.header('Prediction of Kidney Stone')
 if prediction == 0:
   st.write("Congratulations! You don't have kidney stones")
 else:
-  st.write("You have kidney stones. Please, visit a doctor")
+  st.write("You have kidney stones. Please, visit a doctor.")
 
 st.write('---')
 
