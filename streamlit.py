@@ -12,10 +12,10 @@ st.markdown("""
       This application can predict the presence of kidney stones based on your urinalysis results.
       You need to enter the following parameters:
       1. specific gravity, the density of the urine relative to water;
-      2. pH, the negative logarithm of the hydrogen ion;
-      3. osmolarity (mOsm)
-      4. conductivity (mMho milliMho)
-      5. urea concentration in millimoles per litre
+      2. pH balance of urine;
+      3. Urine osmolality (mOsm);
+      4. conductivity (mMho milliMho);
+      5. urea concentration in millimoles per litre;
       6. calcium concentration (CALC) in millimolesllitre.
       ***
 """)
