@@ -19,7 +19,7 @@ st.markdown("""
       6. calcium concentration (CALC) in millimolesllitre.
       ***
 """)
-st.markdown("The data is obtained from 'Physical Characteristics of Urines With and Without Crystals',a chapter from Springer Series in Statistics.")
+st.markdown("The data for this application is obtained from 'Physical Characteristics of Urines With and Without Crystals',a chapter from Springer Series in Statistics.")
 
 st.sidebar.header("Specify input parameters")
 
