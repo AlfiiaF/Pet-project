@@ -24,7 +24,7 @@ st.markdown("""
 st.sidebar.header("Specify input parameters")
 
 
-st.cache_data
+@st.cache_data
 def user_input_features():
         GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
         PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
