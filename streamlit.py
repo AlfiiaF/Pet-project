@@ -23,6 +23,8 @@ st.sidebar.header("Specify input parameters")
 
 X = st.file_uploader("train.csv")
 
+st.write(X.head())
+
 GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
 PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
 OSMO = st.sidebar.slider('OSMO', float(X.osmo.min()), float(X.osmo.max()), float(X.osmo.mean()))
