@@ -46,5 +46,4 @@ st.write('---')
 
 model = joblib.load("model.pkl")
 
-prediction = model.predict(df)
 
