@@ -21,7 +21,8 @@ st.markdown("""
 
 st.sidebar.header("Specify input parameters")
 
-GRAVITY = st.sidebar.slider('GRAVITY', 1.005, 1.04, 1.017)
+GRAVITY = st.sidebar.slider('GRAVITY', 1005, 1040, 1017)
 PH = st.sidebar.slider('PH', 4.76, 7.94, 5.96)
+OSMO = st.sidebar.slider('OSMO', 187, 1236, 645)
 
 
