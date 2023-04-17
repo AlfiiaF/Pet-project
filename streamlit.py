@@ -45,5 +45,6 @@ st.write(features)
 st.write('---')
 
 model = joblib.load("model.pkl")
+prediction = model.predict(features)
 
 
