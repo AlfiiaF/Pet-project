@@ -21,8 +21,12 @@ st.markdown("""
 
 st.sidebar.header("Specify input parameters")
 
-GRAVITY = st.sidebar.slider('GRAVITY', 1005, 1040, 1017)
-PH = st.sidebar.slider('PH', 4.76, 7.94, 5.96)
-OSMO = st.sidebar.slider('OSMO', 187, 1236, 645)
+uploaded_file = st.file_uploader("train.csv")
 
+GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
+PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
+OSMO = st.sidebar.slider('OSMO', float(X.osmo.min()), float(X.osmo.max()), float(X.osmo.mean()))
+COND = st.sidebar.slider('COND', float(X.cond.min()), float(X.cond.max()), float(X.cond.mean()))
+UREA = st.sidebar.slider('UREA', float(X.urea.min()), float(X.urea.max()), float(X.urea.mean()))
+CALC = st.sidebar.slider('CALC', float(X.calc.min()), float(X.calc.max()), float(X.calc.mean()))
 
