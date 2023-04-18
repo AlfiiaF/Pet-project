@@ -30,7 +30,7 @@ COND = st.sidebar.slider('COND', 5.1, 38.0, 21.34)
 UREA = st.sidebar.slider('UREA', 10, 620, 277)
 CALC = st.sidebar.slider('CALC', 0.17, 14.34, 4.12)
 
-data = {'gravity': GRAVITY,
+data = {'gravity': GRAVITY/1000,
       'ph': PH,
       'osmo': OSMO,
       'cond': COND, 
