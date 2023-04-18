@@ -1,6 +1,6 @@
-# Streamlit-1
+# Pet-projects
 
-This application based on ML model can predict the presence of kidney stones based on urinalysis results:
+1. Application based on ML model can predict the presence of kidney stones based on urinalysis results:
 https://alfiiaf-streamlit-1-streamlit-7gcyyd.streamlit.app/
 
-When creating the ML model, the following libraries were used: Pycaret, Optuna, Random Forest algoritm.
+When creating the ML model, the following libraries were used: Pycaret, Optuna, Random Forest algoritm, feature engineering. 
