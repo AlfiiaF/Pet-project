@@ -53,5 +53,5 @@ if prediction == 0:
 else:
   st.write("You have kidney stones. Please, visit a doctor.")
 
-st.write('---')
+st.write('---') 
 
