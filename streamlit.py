@@ -44,7 +44,9 @@ st.header('Specified input parameters')
 st.write(features)
 st.write('---')
 
+
 model = joblib.load("model.pkl")
+
 prediction = model.predict(features)
 
 st.header('Prediction of Kidney Stone')
