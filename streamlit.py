@@ -4,6 +4,22 @@ import pandas as pd
 import shap
 import matplotlib.pyplot as plt
 
+import streamlit as st
+
+st.session_state['answer'] = ''!
+
+st.write(st.session_state)
+
+realans = ['', 'abc', 'edf']
+
+if  st.session_state['answer'] in realans:
+    answerStat = "correct"
+elif st.session_state['answer'] not in realans:
+    answerStat = "incorrect"
+
+st.write(st.session_state)
+st.write(answerStat)
+
 st.title('Kidney Stone Prediction based on Urine Analysis')
 
 st.image('Kidney.jpeg')
