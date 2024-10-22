@@ -1,16 +1,21 @@
-import numpy as np 
-import seaborn as sns 
+import numpy as np
+import seaborn as sns
 import pandas as pd 
-import matplotlib.pyplot as plt 
-from sklearn.ensemble import GradientBoostingClassifier 
-from xgboost import XGBClassifier 
-from lightgbm import LGBMClassifier 
-from sklearn.ensemble import ExtraTreesClassifier 
-from sklearn.ensemble import RandomForestClassifier 
-from sklearn.model_selection import RepeatedStratifiedKFold 
-from sklearn.metrics import roc_auc_score 
-from lightgbm import LGBMClassifier 
-from sklearn.linear_model import LogisticRegression 
-from sklearn.model_selection import cross_val_score 
-from sklearn.model_selection import cross_validate, GridSearchCV, train_test_split, StratifiedKFold 
-import warnings warnings.filterwarnings("ignore") %matplotlib inline
+import matplotlib.pyplot as plt
+from sklearn.ensemble import GradientBoostingClassifier
+from xgboost import XGBClassifier
+from lightgbm import LGBMClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import RepeatedStratifiedKFold
+from sklearn.metrics import roc_auc_score
+from lightgbm import LGBMClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import cross_val_score
+
+from sklearn.model_selection import cross_validate, GridSearchCV, train_test_split, StratifiedKFold
+
+
+import warnings
+warnings.filterwarnings("ignore")
+%matplotlib inline
