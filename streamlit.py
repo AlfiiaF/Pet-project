@@ -1,60 +1,83 @@
-import streamlit as st
 import joblib
+import streamlit as st
 import pandas as pd
+import base64
+import pickle
+from PIL import Image
+from urllib.request import urlopen
 import shap
-import matplotlib.pyplot as plt
 
+image = Image.open(urlopen('https://f.stolichki.ru/s/media/articles/131b46e7ed0d3f49207a796922803e59.jpg'))
 
-st.title('Kidney Stone Prediction based on Urine Analysis')
+st.title('# Kidney Stone Prediction based on Urine Analysis')
 
-st.image('Kidney.jpeg')
+st.image(image, use_column_width=True)
 
 st.markdown("""
-      This application can predict the presence of kidney stones based on your urinalysis results.
-      You need to enter the following parameters:
-      1. specific gravity, the density of the urine relative to water;
-      2. pH balance of urine;
-      3. urine osmolality (mOsm);
-      4. conductivity (mMho milliMho);
-      5. urea concentration in millimoles per litre;
-      6. calcium concentration (CALC) in millimolesllitre.
+      The six physical characteristics of the urine are: (1) specific gravity, the density of the urine relative to water; (2) pH, the negative logarithm of the hydrogen ion; (3) osmolarity (mOsm), a unit used in biology and medicine but not in
+      physical chemistry. Osmolarity is proportional to the concentration of
+      molecules in solution; (4) conductivity (mMho milliMho). One Mho is one
+      reciprocal Ohm. Conductivity is proportional to the concentration of charged
+      ions in solution; (5) urea concentration in millimoles per litre; and (6) calcium
+      concentration (CALC) in millimolesllitre.
+      The data is obtained from 'Physical Characteristics of Urines With and Without Crystals',a chapter from Springer Series in Statistics.
       ***
 """)
-st.markdown("The data for this application is obtained from 'Physical Characteristics of Urines With and Without Crystals',a chapter from Springer Series in Statistics.")
+
 
 st.sidebar.header("Specify input parameters")
 
-GRAVITY = st.sidebar.slider('GRAVITY', 1005, 1040, 1017)
-PH = st.sidebar.slider('PH', 4.76, 7.94, 5.96)
-OSMO = st.sidebar.slider('OSMO', 187, 1236, 645)
-COND = st.sidebar.slider('COND', 5.1, 38.0, 21.34)
-UREA = st.sidebar.slider('UREA', 10, 620, 277)
-CALC = st.sidebar.slider('CALC', 0.17, 14.34, 4.12)
+def user_input_features():
+  GRAVITY = st.sidebar.slider('GRAVITY', float(X.gravity.min()), float(X.gravity.max()), float(X.gravity.mean()))
+  PH = st.sidebar.slider('PH', float(X.ph.min()), float(X.ph.max()), float(X.ph.mean()))
+  OSMO = st.sidebar.slider('OSMO', float(X.osmo.min()), float(X.osmo.max()), float(X.osmo.mean()))
+  COND = st.sidebar.slider('COND', float(X.cond.min()), float(X.cond.max()), float(X.cond.mean()))
+  UREA = st.sidebar.slider('UREA', float(X.urea.min()), float(X.urea.max()), float(X.urea.mean()))
+  CALC = st.sidebar.slider('CALC', float(X.calc.min()), float(X.calc.max()), float(X.calc.mean()))
 
-data = {'gravity': GRAVITY/1000,
-      'ph': PH,
-      'osmo': OSMO,
-      'cond': COND, 
-      'urea': UREA,
-      'calc': CALC}
+  data = {'gravity': GRAVITY,
+          'ph': PH,
+          'osmo': OSMO,
+          'cond': COND, 
+          'urea': UREA,
+          'calc': CALC}
 
-features = pd.DataFrame(data, index=[0])
+  features = pd.DataFrame(data, index=[0])
+  return features
+
+df = user_input_features()
+
+# add new features 
+#df = add_features(df)
+
 
 st.header('Specified input parameters')
-st.write(features)
+st.write(df)
 st.write('---')
-
 
 model = joblib.load("model.pkl")
 
-prediction = model.predict(features)
+prediction = model.predict(df)
+
 
 st.header('Prediction of Kidney Stone')
-
+st.write(prediction)
 if prediction == 0:
-  st.write("Congratulations! You don't have kidney stones.")
+  st.write("You don't have kidney stones")
 else:
-  st.write("You have kidney stones. Please, visit a doctor.")
+  st.write("You have kidney stones. See a doctor")
 
-st.write('---') 
+st.write('---')
+
+
+explainer = shap.TreeExplainer(model)
+shap_values = explainer.shap_values(X)
+
+st.header('Feature Importance')
+plt.title('Feature importance based on SHAP values')
+shap.summary_plot(shap_values, X)
+st.pyplot(bbox_inches='tight')
+st.write('---')
+
+
 
